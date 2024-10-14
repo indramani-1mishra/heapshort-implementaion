@@ -1,0 +1,9 @@
+Steps of the Heapsort Algorithm
+Build a Max Heap:
+Convert the array into a max heap structure. In a max heap, for every node 
+𝑖 i, the value of 𝑖
+i is greater than or equal to the values of its children.
+Extract Elements from the Heap:
+The root of the max heap (the largest element) is swapped with the last element of the heap. This effectively reduces the size of the heap by one.
+The heap property is restored by calling the maxheapify function on the root of the heap.
+Repeat the process until the heap is empty.
