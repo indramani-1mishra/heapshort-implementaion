@@ -1,0 +1,63 @@
+
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println(" hello friends");
+        
+          int[] arr = {9,6,7,2,1,3};
+        System.out.println("Original array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        
+        
+  
+   heapshort(arr, arr.length);
+        
+        System.out.println("\nSorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+      
+    
+    public static void maxheapify(int[]arr,int n,int i)
+    {
+        int largest=i;
+      
+        int l = (2 * i) + 1;
+        int r = (2 * i) + 2;
+        int temp;
+        if(l<n && arr[l]>arr[largest])
+        {
+            largest=l;
+        }
+         if(r<n && arr[r]>arr[largest])
+        {
+            largest=r;
+        }
+        if(largest!=i)
+        {
+            temp=arr[largest];
+            arr[largest]=arr[i];
+            arr[i]=temp;
+        }
+    }
+    public static void heapshort(int arr[], int n)
+    {
+        // for build max head
+        for(int i=n/2-1;i>=0;i--)
+        {
+            maxheapify(arr,n,i);
+        }
+         //for delete max heap
+          for (int i = n - 1; i > 0; i--) {
+            // Swap the root of the heap with the last element
+          int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            // Call maxHeapify on the reduced heap
+            maxheapify(arr, i, 0);
+        }
+    }
+}
